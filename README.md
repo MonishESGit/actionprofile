@@ -1,5 +1,5 @@
 # Prerequisites
-#
+# New
 - JDK 21
 - Maven 3 
 - MySQL 8
