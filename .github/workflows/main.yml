@@ -13,6 +13,9 @@ on:
   schedule:
     - cron: '15 21 * * 1-5'
 
+permissions:
+  contents: read
+
 jobs:
   Build:
     runs-on: ubuntu-latest
@@ -22,6 +25,12 @@ jobs:
 
       - name: Maven Build
         run: mvn install
+      
+      - name: Upload Build Artifacts (WAR)
+        uses: actions/upload-artifacts@v3
+        with:
+          name: vprofile-app
+          path: target/*.war
 
   Testing:
     runs-on: ubuntu-latest
