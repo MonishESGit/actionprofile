@@ -48,7 +48,7 @@ jobs:
         run: mvn test
       
       - name: Checkstyle
-        if: github.ref == '/refs/heads/main/''
+        if: github.ref == '/refs/heads/main/'
         run: mvn checkstyle:checkstyle
 
       - name: Run Tests on other branches
