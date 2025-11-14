@@ -27,10 +27,14 @@ jobs:
         run: mvn install
       
       - name: Upload Build Artifacts (WAR)
-        uses: actions/upload-artifacts@v3
+        uses: actions/upload-artifact@v3
         with:
           name: vprofile-app
           path: target/*.war
+      
+      - name: Notify if Builf Fails
+        if: failure()
+        run: echo " Build Failed! Please Check Logs!!!"
 
   Testing:
     runs-on: ubuntu-latest
